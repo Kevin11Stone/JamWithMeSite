@@ -7,7 +7,8 @@ This website also serves as our quarter project for the previously mentioned cou
 ### Website Premise 
 This basic idea of the website is that once a user logs in, they're able to see fellow users' posts. These posts are
 meant to display information regarding needs (musicians, equipment, places to practice, gigs etc.) and information the user wants
-to show to local musicians (events, social gatherings etc.).
+to show to local musicians (events, social gatherings etc.). This site also serves as a forum in which one is able to promote their 
+endeavors and groups.
 
 ### Prerequisites
 
