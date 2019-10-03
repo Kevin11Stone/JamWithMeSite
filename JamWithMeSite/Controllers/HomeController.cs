@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using JamWithMeSite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JamWithMeSite.Controllers
 {
@@ -25,6 +26,11 @@ namespace JamWithMeSite.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Must be logged in to view the Privacy Policy
+        /// </summary>
+        /// <returns></returns>
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
