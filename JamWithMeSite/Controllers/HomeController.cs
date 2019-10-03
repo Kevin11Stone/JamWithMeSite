@@ -10,8 +10,18 @@ namespace JamWithMeSite.Controllers
 {
     public class HomeController : Controller
     {
+
+        /// <summary>
+        /// If user is logged in, they are given access to the 
+        /// listings. 
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
+            if(User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("WelcomeUserPage");
+            }
             return View();
         }
 
@@ -21,6 +31,15 @@ namespace JamWithMeSite.Controllers
         }
 
         public IActionResult Contact()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Once the user is logged in. They are directed to this page.
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult WelcomeUserPage()
         {
             return View();
         }
