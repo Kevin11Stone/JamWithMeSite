@@ -13,6 +13,7 @@ using Microsoft.EntityFrameworkCore;
 using JamWithMeSite.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using JamWithMeSite.Areas.Identity.Data;
 
 namespace JamWithMeSite
 {
@@ -38,7 +39,8 @@ namespace JamWithMeSite
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddDefaultIdentity<JamWithMeSiteUser>()
+                .AddRoles<IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
