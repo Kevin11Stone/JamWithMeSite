@@ -13,8 +13,8 @@ endeavors and groups.
 ### Prerequisites
 
 You'll need to have [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) installed. 
-This projects also runs on .NET Core 2.2 so the appropriate [SDK](https://dotnet.microsoft.com/download/visual-studio-sdks)
-will also need to be downloaded.
+The appropriate [SDK](https://dotnet.microsoft.com/download/visual-studio-sdks)
+will also need to be downloaded (.NET Core 2.0 or higher).
 
 ### More information will be provided here
 
