@@ -38,7 +38,7 @@ namespace JamWithMeSite
 
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("JamWithMeSiteContextConnection")));
             services.AddDefaultIdentity<JamWithMeSiteUser>()
                 .AddRoles<IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
