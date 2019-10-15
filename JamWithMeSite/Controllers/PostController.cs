@@ -19,12 +19,36 @@ namespace JamWithMeSite.Controllers
         }
 
 
-        
+        /// <summary>
+        /// Displays list of musicians.
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             List<Musician> musicanList = await MusicianDatabase.GetAllMusicians(_context);
 
             return View(musicanList);
         }
+
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Add(Musician m)
+        {
+            if (ModelState.IsValid)
+            {
+                // add to database
+                await MusicianDatabase.Add(m, _context);
+                return RedirectToAction("Index");
+            }
+
+            return View(m);
+        }
+
+
     }
 }
