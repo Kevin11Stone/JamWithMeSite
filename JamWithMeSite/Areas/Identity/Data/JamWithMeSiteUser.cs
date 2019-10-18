@@ -15,5 +15,6 @@ namespace JamWithMeSite.Areas.Identity.Data
         public string LastName { get; set; }
         [PersonalData]
         public DateTime DateOfBirth { get; set; }
+
     }
 }
