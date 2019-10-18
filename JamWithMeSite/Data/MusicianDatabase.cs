@@ -22,6 +22,16 @@ namespace JamWithMeSite.Data
             await context.SaveChangesAsync();
             return m;
         }
+        public static async Task Delete(int id, ApplicationDbContext context)
+        {
+            Musician m = new Musician()
+            {
+                UserId = id
+            };
+
+            context.Entry(m).State = EntityState.Deleted;
+            await context.SaveChangesAsync();
+        }
 
 
         public static async Task<List<Musician>> GetAllMusicians(ApplicationDbContext context)
@@ -30,6 +40,15 @@ namespace JamWithMeSite.Data
                                                     .OrderBy(m => m.Username)
                                                     .ToListAsync();
             return musiciansList;
+        }
+
+        public static async Task<Musician> GetMusicianById(int id, ApplicationDbContext context)
+        {
+            Musician musicianById = await (from m in context.Musicians
+                                                    where m.UserId == id
+                                                    select m).SingleOrDefaultAsync();
+
+            return musicianById;
         }
 
     }
