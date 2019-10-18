@@ -50,5 +50,18 @@ namespace JamWithMeSite.Controllers
         }
 
 
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Musician m = await MusicianDatabase.GetMusicianById(id, _context);
+            return View(m);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await MusicianDatabase.Delete(id, _context);
+            return RedirectToAction("Index");
+        }
     }
 }
