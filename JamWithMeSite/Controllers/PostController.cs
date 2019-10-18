@@ -18,6 +18,13 @@ namespace JamWithMeSite.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> Details(int id)
+        {
+            Musician selectedMusician = await MusicianDatabase.GetMusicianById(id, _context);
+            return View(selectedMusician);
+        }
+
+
 
         /// <summary>
         /// Displays list of musicians.
