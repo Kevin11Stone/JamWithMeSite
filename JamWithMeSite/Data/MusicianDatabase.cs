@@ -51,5 +51,12 @@ namespace JamWithMeSite.Data
             return musicianById;
         }
 
+
+        public static async Task<Musician> UpdatePost(Musician m, ApplicationDbContext context)
+        {
+            context.Update(m);
+            await context.SaveChangesAsync();
+            return m;
+        }
     }
 }

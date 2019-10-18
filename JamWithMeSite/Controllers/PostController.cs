@@ -64,5 +64,28 @@ namespace JamWithMeSite.Controllers
             await MusicianDatabase.Delete(id, _context);
             return RedirectToAction("Index");
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Update(int id)
+        {
+            Musician selectedMusician = await MusicianDatabase.GetMusicianById(id, _context);
+            return View(selectedMusician);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(Musician m)
+        {
+            if (ModelState.IsValid)
+            {
+                await MusicianDatabase.UpdatePost(m, _context);
+                return RedirectToAction("Index");
+            }
+
+            return View(m);
+        }
+
+
+
     }
 }

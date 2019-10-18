@@ -43,7 +43,7 @@
                 @Html.DisplayFor(modelItem => item.State)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> |
+                <a asp-controller="Post" asp-action="Update" asp-route-id="@item.UserId">Update Post</a> |
                 <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
             </td>
