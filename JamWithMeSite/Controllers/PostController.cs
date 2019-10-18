@@ -31,6 +31,7 @@ namespace JamWithMeSite.Controllers
         }
 
 
+
         [HttpGet]
         public IActionResult Add()
         {
@@ -48,6 +49,42 @@ namespace JamWithMeSite.Controllers
 
             return View(m);
         }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            Musician m = await MusicianDatabase.GetMusicianById(id, _context);
+            return View(m);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await MusicianDatabase.Delete(id, _context);
+            return RedirectToAction("Index");
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> Update(int id)
+        {
+            Musician selectedMusician = await MusicianDatabase.GetMusicianById(id, _context);
+            return View(selectedMusician);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Update(Musician m)
+        {
+            if (ModelState.IsValid)
+            {
+                await MusicianDatabase.UpdatePost(m, _context);
+                return RedirectToAction("Index");
+            }
+
+            return View(m);
+        }
+
 
 
     }
