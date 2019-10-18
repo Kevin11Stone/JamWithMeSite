@@ -1,4 +1,9 @@
-﻿@model IEnumerable<JamWithMeSite.Models.Musician>
+﻿@using Microsoft.AspNetCore.Identity
+@using JamWithMeSite.Areas.Identity.Data
+@inject SignInManager<JamWithMeSiteUser> SignInManager
+@inject UserManager<JamWithMeSiteUser> UserManager
+
+@model IEnumerable<JamWithMeSite.Models.Musician>
 
 @{
     ViewData["Title"] = "LocalMusicianListings";
@@ -6,9 +11,6 @@
 
 <h1>Local Musician Listings</h1>
 
-<p>
-    <a asp-action="Add">Create A New Post</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -28,26 +30,31 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Username)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                <a asp-controller="Post" asp-action="Update" asp-route-id="@item.UserId">Update Post</a> |
-                <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-controller="Post" asp-action="Update" asp-route-id="@item.UserId">Update Post</a>
+                        <a asp-action="Details" asp-route-id="@item.UserId">Details</a>
+                        <a asp-action="Delete" asp-route-id="@item.UserId">Delete</a>
+                    }
+
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

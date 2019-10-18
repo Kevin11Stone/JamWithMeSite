@@ -6,16 +6,6 @@
     <ul class="navbar-nav">
         @if (SignInManager.IsSignedIn(User))
         {
-            <li class="nav-item dropdown text-dark">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    View Postings
-                </a>
-                <div class="dropdown-menu text-dark" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-dark" asp-controller="Post" asp-action="Index">View Local Musician Postings</a>
-                    <a class="dropdown-item text-dark" asp-controller="Post" asp-action="Index">View Local Band Postings</a>
-     
-                </div>
-            </li>
 
             <li class="nav-item">
                 <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">What's up @UserManager.GetUserAsync(User).Result.FirstName!</a>
