@@ -14,6 +14,7 @@ using JamWithMeSite.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using JamWithMeSite.Areas.Identity.Data;
+using JamWithMeSite.Services;
 
 namespace JamWithMeSite
 {
@@ -44,6 +45,7 @@ namespace JamWithMeSite
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
+            services.AddScoped<IForum, ForumService>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

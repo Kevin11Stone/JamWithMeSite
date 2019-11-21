@@ -4,14 +4,16 @@ using JamWithMeSite.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JamWithMeSite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191121015508_changedInitialModels")]
+    partial class changedInitialModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,7 +78,7 @@ namespace JamWithMeSite.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("JamWithMeSite.Models.Forum.Forum", b =>
+            modelBuilder.Entity("JamWithMeSite.Models.Forum", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,23 +97,6 @@ namespace JamWithMeSite.Migrations
                     b.ToTable("Forums");
                 });
 
-            modelBuilder.Entity("JamWithMeSite.Models.ForumListingModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Description");
-
-                    b.Property<string>("ImageUrl");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ForumListingModel");
-                });
-
             modelBuilder.Entity("JamWithMeSite.Models.Post", b =>
                 {
                     b.Property<int>("Id")
@@ -124,8 +109,6 @@ namespace JamWithMeSite.Migrations
 
                     b.Property<int?>("ForumId");
 
-                    b.Property<int?>("ForumNameId");
-
                     b.Property<string>("Title");
 
                     b.Property<string>("UserId");
@@ -133,8 +116,6 @@ namespace JamWithMeSite.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ForumId");
-
-                    b.HasIndex("ForumNameId");
 
                     b.HasIndex("UserId");
 
@@ -280,13 +261,9 @@ namespace JamWithMeSite.Migrations
 
             modelBuilder.Entity("JamWithMeSite.Models.Post", b =>
                 {
-                    b.HasOne("JamWithMeSite.Models.Forum.Forum")
+                    b.HasOne("JamWithMeSite.Models.Forum", "Forum")
                         .WithMany("Posts")
                         .HasForeignKey("ForumId");
-
-                    b.HasOne("JamWithMeSite.Models.ForumListingModel", "ForumName")
-                        .WithMany()
-                        .HasForeignKey("ForumNameId");
 
                     b.HasOne("JamWithMeSite.Areas.Identity.Data.JamWithMeSiteUser", "User")
                         .WithMany()
