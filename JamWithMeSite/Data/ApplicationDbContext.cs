@@ -17,7 +17,10 @@ namespace JamWithMeSite.Data
         {
         }
 
-        public DbSet<Musician> Musicians { get; set; }
+        public DbSet<JamWithMeSiteUser> JamWithMeSiteUsers { get; set; }
+        public DbSet<Forum> Forums { get; set; }
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<PostReply> PostsReplies { get; set; }
 
 
 
