@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using JamWithMeSite.Areas.Identity.Data;
 using JamWithMeSite.Models;
+using JamWithMeSite.Models.Forum;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

@@ -1,5 +1,6 @@
 ﻿using JamWithMeSite.Areas.Identity.Data;
 using JamWithMeSite.Models;
+using JamWithMeSite.Models.Forum;
 using System;
 using System.Collections.Generic;
 using System.Linq;

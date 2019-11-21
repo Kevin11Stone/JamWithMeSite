@@ -1,6 +1,7 @@
 ﻿using JamWithMeSite.Areas.Identity.Data;
 using JamWithMeSite.Data;
 using JamWithMeSite.Models;
+using JamWithMeSite.Models.Forum;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
