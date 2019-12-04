@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using JamWithMeSite.Data;
 using JamWithMeSite.Models;
 using JamWithMeSite.Models.Forum;
+using JamWithMeSite.Models.Post;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JamWithMeSite.Controllers
@@ -13,6 +14,9 @@ namespace JamWithMeSite.Controllers
     {
 
         private readonly IForum _forumService;
+        private readonly IPost _postService;
+
+
         public ForumController(IForum forumService)
         {
             _forumService = forumService;
@@ -37,5 +41,35 @@ namespace JamWithMeSite.Controllers
 
             return View(model);
         }
+
+
+        public IActionResult Topic(int id)
+        {
+            var forum = _forumService.GetById(id);
+            var posts = forum.Posts;
+
+            // display posts associated with given forum
+
+            var postListings = posts.Select(post => new PostListingModel
+            {
+                Id = post.Id,
+                AuthorId = post.User.Id,
+                AuthorRating = post.User.Rating,
+                Title = post.Title,
+                Author = post.User.UserName,
+                DatePosted = post.Created.ToString(),
+                RepliesCount = post.Replies.Count(),
+                Forum = BuildForumListing(post)
+            });
+            var model = new ForumTopicModel
+            {
+                Posts = postListings,
+                Forum = BuildForumListing(forum)
+            };
+            return View(model);
+
+
+        }
+
     }
 }
