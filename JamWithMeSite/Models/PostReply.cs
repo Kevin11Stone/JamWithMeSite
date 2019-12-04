@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace JamWithMeSite.Models
+namespace JamWithMeSite.Data.Models
 {
     /// <summary>
     /// Represents a single post reply object.

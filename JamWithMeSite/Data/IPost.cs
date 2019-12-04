@@ -1,4 +1,5 @@
-﻿using JamWithMeSite.Models;
+﻿using JamWithMeSite.Data.Models;
+using JamWithMeSite.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

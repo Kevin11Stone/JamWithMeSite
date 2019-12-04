@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using JamWithMeSite.Areas.Identity.Data;
+using JamWithMeSite.Data.Models;
 using JamWithMeSite.Models;
 using JamWithMeSite.Models.Forum;
 using Microsoft.AspNetCore.Identity;

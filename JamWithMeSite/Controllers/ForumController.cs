@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using JamWithMeSite.Data;
+using JamWithMeSite.Data.Models;
 using JamWithMeSite.Models;
 using JamWithMeSite.Models.Forum;
 using JamWithMeSite.Models.Post;
@@ -46,7 +47,7 @@ namespace JamWithMeSite.Controllers
         public IActionResult Topic(int id)
         {
             var forum = _forumService.GetById(id);
-            var posts = forum.Posts;
+            var posts = _postService.GetPostsByForum(id);
 
             // display posts associated with given forum
 
@@ -60,16 +61,25 @@ namespace JamWithMeSite.Controllers
                 DatePosted = post.Created.ToString(),
                 RepliesCount = post.Replies.Count(),
                 Forum = BuildForumListing(post)
+   
             });
-            var model = new ForumTopicModel
-            {
-                Posts = postListings,
-                Forum = BuildForumListing(forum)
-            };
-            return View(model);
+
+            return View();
 
 
         }
 
+        private object BuildForumListing(Post post)
+        {
+            var forum = post.Forum;
+
+            return new ForumListingModel
+            {
+                Id = forum.Id,
+                Name = forum.Title,
+                Description = forum.Description,
+                ImageUrl = forum.ImageUrl
+            };
+        }
     }
 }

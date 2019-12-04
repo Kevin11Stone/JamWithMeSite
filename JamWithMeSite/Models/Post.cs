@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using JamWithMeSite.Models.Forum;
 using System.Linq;
 using System.Threading.Tasks;
+using JamWithMeSite.Models;
 
-namespace JamWithMeSite.Models
+namespace JamWithMeSite.Data.Models
 {
     /// <summary>
     /// Represents a single post object. 
@@ -18,7 +19,7 @@ namespace JamWithMeSite.Models
         public string Content { get; set; }
         public DateTime Created { get; set; }
         public virtual JamWithMeSiteUser User { get; set; }
-        public virtual ForumListingModel ForumName { get; set; }
+        public virtual Forum Forum { get; set; }
 
         public virtual IEnumerable<PostReply> Replies { get; set; }
     }
