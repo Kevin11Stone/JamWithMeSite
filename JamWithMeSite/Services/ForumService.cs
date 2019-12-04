@@ -1,5 +1,6 @@
 ﻿using JamWithMeSite.Areas.Identity.Data;
 using JamWithMeSite.Data;
+using JamWithMeSite.Data.Models;
 using JamWithMeSite.Models;
 using JamWithMeSite.Models.Forum;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,8 @@ namespace JamWithMeSite.Services
         {
             throw new NotImplementedException();
         }
+
+
 
         public Task Delete(int forumId)
         {
@@ -52,6 +55,16 @@ namespace JamWithMeSite.Services
         }
 
         public Task UpdateForumTitle(int forumId, string newTitle)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Forum> IForum.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        Forum IForum.GetById(int id)
         {
             throw new NotImplementedException();
         }

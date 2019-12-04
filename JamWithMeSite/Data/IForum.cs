@@ -1,4 +1,5 @@
 ﻿using JamWithMeSite.Areas.Identity.Data;
+using JamWithMeSite.Data.Models;
 using JamWithMeSite.Models;
 using JamWithMeSite.Models.Forum;
 using System;

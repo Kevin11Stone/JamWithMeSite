@@ -53,6 +53,7 @@ namespace JamWithMeSite.Controllers
 
             var postListings = posts.Select(post => new PostListingModel
             {
+               
                 Id = post.Id,
                 AuthorId = post.User.Id,
                 AuthorRating = post.User.Rating,
