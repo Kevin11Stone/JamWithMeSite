@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JamWithMeSite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191121024330_forumDispplay")]
-    partial class forumDispplay
+    [Migration("20191204174254_ProjectInitialization")]
+    partial class ProjectInitialization
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
